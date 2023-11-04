@@ -34,6 +34,7 @@ def create_enemy():
     enemy_move = [random.randint(-6, -1), 0]
     return [enemy, enemy_rect, enemy_move]
 
+
 def create_bonus():
     bonus_size = (40, 40)
     bonus = pygame.Surface(bonus_size)
@@ -46,7 +47,7 @@ CREATE_ENEMY = pygame.USEREVENT + 1
 pygame.time.set_timer(CREATE_ENEMY, 1500)
 
 CREATE_BONUS = pygame.USEREVENT + 2
-pygame.time.set_timer(CREATE_BONUS, 2000)
+pygame.time.set_timer(CREATE_BONUS, 1500)
 
 enemies = []
 bonuses = []
@@ -89,7 +90,31 @@ while playing:
         bonus[1] = bonus[1].move(bonus[2])
         main_display.blit(bonus[0], bonus[1])
 
+
+    # if player_rect.bottom >= HEIGHT:
+    #     player_speed = random.choice(([1, -1], [-1, -1]))
+
+    # if player_rect.top <= 0:
+    #     player_speed = random.choice(([-1, 1], [1, 1]))
+
+    # if player_rect.right >= WIDTH:
+    #     player_speed = random.choice(([-1, -1], [-1, 1]))
+
+    # if player_rect.left <= 0:
+    #     player_speed = random.choice(([1, 1], [1, -1]))
+
+    # print(player_rect.bottom)
+
+    # enemy_rect = enemy_rect.move(enemy_move)
+
     main_display.blit(player, player_rect)
+
+    # main_display.blit(enemy, enemy_rect)
+
+    print(len(bonuses))
+
+
+    # player_rect = player_rect.move(player_speed)
 
     pygame.display.flip()
 
